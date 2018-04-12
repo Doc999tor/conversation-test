@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Home page</title>
+</head>
+<body>
+	<header>
+		<h1>Home page</h1>
+	</header>
+	<form>
+		<label>
+			<span>Title</span>
+			<input search="search" name="title" placeholder="Enter title">
+		</label>
+		<label>
+			<span>Description</span>
+			<input type="search" name="description" placeholder="Enter description">
+		</label>
+		<label>
+			<span>Category Name</span>
+			<input type="search" name="category" list="categories_list" placeholder="Enter category name">
+			<datalist id="categories_list"></datalist>
+		</label>
+		<label>
+			<span>Actor name</span>
+			<input type="search" name="actor" list="actors_list" placeholder="Enter actor name">
+			<datalist id="actors_list"></datalist>
+		</label>
+		<label>
+			<span>Language Name</span>
+			<input type="search" name="language" list="languages_list" placeholder="Enter language name">
+			<datalist id="languages_list"></datalist>
+		</label>
+		<label>
+			<input type="submit" value="Search">
+		</label>
+	</form>
+	<main>
+		<table id="search_results">
+			<caption>Matching films</caption>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Category</th>
+					<th>Release_year</th>
+					<th>Language</th>
+					<th>Length</th>
+					<th>Rating</th>
+					<th>Actors</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</main>
+	<aside>
+		<table id="search_log">
+			<caption>Matching films</caption>
+			<thead>
+				<tr>
+					<th>Timestamp</th>
+					<th>Search types</th>
+					<th>Search values</th>
+					<th>Result count</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</aside>
+</body>
+</html>
