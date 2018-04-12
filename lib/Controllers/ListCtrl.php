@@ -9,13 +9,7 @@ use \Lib\Models\Category;
 use \Lib\Models\Language;
 use \Lib\Models\Actor;
 
-class ListCtrl {
-	protected $container;
-
-	public function __construct(\Slim\Container $container) {
-	    $this->container = $container;
-	}
-
+class ListCtrl extends Controller {
 	public function getCategories (Request $request, Response $response):Response {
 		Category::registerContainer($this->container);
 		$categories = Category::getAll();

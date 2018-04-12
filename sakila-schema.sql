@@ -24,6 +24,22 @@ USE sakila;
 -- Table structure for table `actor`
 --
 
+DROP FUNCTION IF EXISTS toCapitalCase;
+delimiter |
+CREATE FUNCTION toCapitalCase (str varchar(2000))
+RETURNS varchar(2000)
+BEGIN
+  DECLARE res varchar(2000);
+    SELECT CONCAT(
+      CONCAT(
+         UCASE(SUBSTR(str, 1, 1))
+      ,LCASE(SUBSTR(str, 2, LENGTH(str)))
+    )
+  ) INTO res;
+  RETURN res;
+END |
+delimiter ;
+
 CREATE TABLE actor (
   actor_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(45) NOT NULL,

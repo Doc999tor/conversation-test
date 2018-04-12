@@ -11,3 +11,5 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 $app->get('/api/categories', 'ListCtrl:getCategories');
 $app->get('/api/languages', 'ListCtrl:getLanguages');
 $app->get('/api/actors', 'ListCtrl:getActors');
+
+$app->get('/api/films', 'SearchCtrl:searchFilms');

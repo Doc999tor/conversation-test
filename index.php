@@ -36,6 +36,9 @@ $container['db'] = function ($c) {
 $container['ListCtrl'] = function () use ($container) {
 	return new \Lib\Controllers\ListCtrl($container);
 };
+$container['SearchCtrl'] = function () use ($container) {
+	return new \Lib\Controllers\SearchCtrl($container);
+};
 
 require_once 'routes.php';
 $app->run();
