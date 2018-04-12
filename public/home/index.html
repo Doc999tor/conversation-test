@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 	<title>Home page</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="home.css"/>
 </head>
 <body>
 	<header>
@@ -12,29 +14,29 @@
 	<form>
 		<label>
 			<span>Title</span>
-			<input search="search" name="title" placeholder="Enter title">
+			<input search="search" name="title" class="form-control" placeholder="Enter title" value="">
 		</label>
 		<label>
 			<span>Description</span>
-			<input type="search" name="description" placeholder="Enter description">
+			<input type="search" name="description" class="form-control" placeholder="Enter description" value="">
 		</label>
 		<label>
 			<span>Category Name</span>
-			<input type="search" name="category" list="categories_list" placeholder="Enter category name">
+			<input type="search" name="category" list="categories_list" class="form-control" placeholder="Enter category name" value="Horror">
 			<datalist id="categories_list"></datalist>
 		</label>
 		<label>
 			<span>Actor name</span>
-			<input type="search" name="actor" list="actors_list" placeholder="Enter actor name">
+			<input type="search" name="actor" list="actors_list" class="form-control" placeholder="Enter actor name" value="">
 			<datalist id="actors_list"></datalist>
 		</label>
 		<label>
 			<span>Language Name</span>
-			<input type="search" name="language" list="languages_list" placeholder="Enter language name">
+			<input type="search" name="language" list="languages_list" class="form-control" placeholder="Enter language name" value="English">
 			<datalist id="languages_list"></datalist>
 		</label>
 		<label>
-			<input type="submit" value="Search">
+			<input type="submit" value="Search" class="btn btn-primary" disabled>
 		</label>
 	</form>
 	<main>
@@ -43,8 +45,8 @@
 			<thead>
 				<tr>
 					<th>Title</th>
-					<th>Description</th>
 					<th>Category</th>
+					<th>Description</th>
 					<th>Release_year</th>
 					<th>Language</th>
 					<th>Length</th>
@@ -59,7 +61,7 @@
 	</main>
 	<aside>
 		<table id="search_log">
-			<caption>Matching films</caption>
+			<caption>Search history</caption>
 			<thead>
 				<tr>
 					<th>Timestamp</th>
@@ -68,10 +70,10 @@
 					<th>Result count</th>
 				</tr>
 			</thead>
-			<tbody>
-
-			</tbody>
+			<tbody></tbody>
 		</table>
 	</aside>
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="/public/home/home.js"></script>
 </body>
 </html>

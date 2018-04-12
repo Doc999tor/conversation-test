@@ -14,8 +14,6 @@ gulp.task('watch', function () {
 	gulp.watch([
 		'lib/**/*.*',
 		'public/**/*.*',
-		'translations/**/*.*',
-		'views/**/*.*',
 		'*.php',
 		'gulpfile.js',
 	]).on('change', reload);
