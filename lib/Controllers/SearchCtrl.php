@@ -38,6 +38,26 @@ class SearchCtrl extends Controller {
 
 		$films = $search->search();
 
-		return $response->getBody()->write('');
+		return $response->withJson($films);
+	}
+
+	public function showAuditLog (Request $request, Response $response):Response {
+		$params = $request->getQueryParams();
+
+		FilmSearch::registerContainer($this->container);
+		$search = new FilmSearch();
+
+		if (isset($params['limit'])) {
+			$limit = filter_var($params['limit'], FILTER_SANITIZE_NUMBER_INT);
+			$search->setLimit((int)$limit);
+		}
+		if (isset($params['offset'])) {
+			$offset = filter_var($params['offset'], FILTER_SANITIZE_NUMBER_INT);
+			$search->setOffset((int)$offset);
+		}
+
+		$audit_log = $search->getSearchLog();
+
+		return $response->withJson($audit_log);
 	}
 }

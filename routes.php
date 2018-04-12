@@ -13,3 +13,4 @@ $app->get('/api/languages', 'ListCtrl:getLanguages');
 $app->get('/api/actors', 'ListCtrl:getActors');
 
 $app->get('/api/films', 'SearchCtrl:searchFilms');
+$app->get('/api/films/log', 'SearchCtrl:showAuditLog');
