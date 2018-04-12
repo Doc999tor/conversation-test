@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width">
+	<meta charset="UTF-8">
+	<title>{{path | capitalize}}</title>
+	<link rel="stylesheet" type="text/css" href="{{base_url()}}/public/common.css"/>
+	<link rel="stylesheet" type="text/css" href="{{base_url()}}/public/{{path}}/{{path}}.css"/>
+</head>
+<body>
+	<h1>Welcome {{path}}, {{name | capitalize}}</h1>
+	<p>base url: {{base_url()}}</p>
+	<p>full path: {{full_path}}</p>
+	<p>date: {{date}}</p>
+	<p>path: {{path}}</p>
+</body>
+</html>

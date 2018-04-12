@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Whoami</title>
+	<link rel="stylesheet" type="text/css" href="public/common.css"/>
+	<link rel="stylesheet" type="text/css" href="public/whoami/whoami.css"/>
+</head>
+<body>
+	<form action="/whoami" method="POST">
+		<label><input type="text" name="name" placeholder="Pls tell us who you are" pattern=".{2,}" required title="name is 2 characters at least"></label>
+		<label><input type="submit"></label>
+	</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+form {}
+
+label {
+	display: flex;
+	width: 80%; height: 3rem;
+	max-width: 400px;
+	margin-right: auto;
+	margin-bottom: 1rem;
+}
+
+input {
+	outline: 1px solid transparent;
+	transition: outline-color .5s;
+}
+input:focus, input:hover {
+	outline-color: green;
+}
+
+input[type=text] {
+	width: 50%;
+	padding: .5rem 1rem;
+	box-sizing: border-box;
+	color: currentColor;
+}
+input[type=text]::-webkit-input-placeholder {
+ 	/*color: currentColor; */
+}
+
+input[type=submit] {
+	width: 50%;
+	background: none;
+	border: 2px solid currentColor;
+	color: currentColor;
+	cursor: pointer;
+}
