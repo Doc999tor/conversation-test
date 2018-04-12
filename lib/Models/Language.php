@@ -1,7 +1,7 @@
 <?php
 namespace Lib\Models;
 
-class Category extends Model {
+class Language extends Model {
 	function __construct() {
 		// for future adding, editing and deleting
 	}
@@ -12,8 +12,8 @@ class Category extends Model {
 		$connection = $container->db;
 
 		$query = "
-			SELECT category_id as id, name
-			FROM category
+			SELECT language_id as id, name
+			FROM language
 			LIMIT 1000;
 		";
 

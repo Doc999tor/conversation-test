@@ -1,0 +1,19 @@
+{
+  "name": "gulp-simple-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "start": "gulp"
+  },
+  "author": "Victor",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.23.5",
+    "gulp": "^3.9.1",
+    "gulp-watch": "^4.3.11"
+  },
+  "dependencies": {
+    "gulp-connect-php": "^1.0.1"
+  }
+}
