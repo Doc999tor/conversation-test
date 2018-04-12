@@ -4,6 +4,11 @@ namespace Lib\Models;
 class Language extends Model implements IListApi {
 	function __construct() {} # for future adding, editing and deleting
 
+	/**
+	 * Gets all languages
+	 *
+	 * @return     array
+	 */
 	public static function getAll() {
 		$container = self::getContainer();
 		if (!isset($container->db)) { throw new \Exception("db is missing"); return; }

@@ -8,6 +8,15 @@ use \Psr\Http\Message\ResponseInterface		 as Response;
 use \Lib\Models\FilmSearch;
 
 class SearchCtrl extends Controller {
+
+	/**
+	 * get films by various search criteria
+	 *
+	 * @param      Request   $request
+	 * @param      Response  $response
+	 *
+	 * @return     Response    films json
+	 */
 	public function searchFilms (Request $request, Response $response) {
 		$params = $request->getQueryParams();
 
@@ -41,6 +50,14 @@ class SearchCtrl extends Controller {
 		return $response->withJson($films);
 	}
 
+	/**
+	 * Shows the audit log.
+	 *
+	 * @param      Request   $request
+	 * @param      Response  $response
+	 *
+	 * @return     Response  audit logs json
+	 */
 	public function showAuditLog (Request $request, Response $response):Response {
 		$params = $request->getQueryParams();
 

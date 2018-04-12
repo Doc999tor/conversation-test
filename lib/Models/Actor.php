@@ -4,6 +4,11 @@ namespace Lib\Models;
 class Actor extends Model implements IListApi {
 	function __construct() {} # for future adding, editing and deleting
 
+	/**
+	 * Gets all actors
+	 *
+	 * @return     array
+	 */
 	public static function getAll() {
 		$container = self::getContainer();
 		if (!isset($container->db)) { throw new \Exception("db is missing"); return; }

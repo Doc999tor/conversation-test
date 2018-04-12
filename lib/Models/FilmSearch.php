@@ -4,6 +4,10 @@ namespace Lib\Models;
 use Lib\Helpers\StringUtils;
 
 class FilmSearch extends Search implements ISearchable {
+	/**
+	 * search criteria validation rules. for now simple type check, can be and will be extended
+	 * @var        array
+	 */
 	protected $criteriaForValidation = [
 		"title"		  => "string",
 		"description" => "string",
@@ -12,9 +16,17 @@ class FilmSearch extends Search implements ISearchable {
 		"language"	  => "string",
 	];
 
-	public function search() {
+	/**
+	 * Searches films by all search criteria, updates the search_log table in transaction, rollbacks both if not succeeded
+	 * Pagination supported, defaults to limit 1000 and offset 0
+	 *
+	 * @throws     \Exception  Error Processing Request
+	 *
+	 * @return     array       found films, can be array of \Lib\Models\Film instances
+	 */
+	public function search():array {
 		$container = self::getContainer();
-		if (!isset($container->db)) { throw new \Exception("db is missing"); return; }
+		if (!isset($container->db)) { throw new \Exception("db is missing"); }
 		$connection = $container->db;
 
 		$search_query = "
@@ -103,9 +115,14 @@ class FilmSearch extends Search implements ISearchable {
 		return $res ?? [];
 	}
 
-	public function getSearchLog() {
+	/**
+	 * Gets the search log with defined pagination
+	 *
+	 * @return     array       The search log
+	 */
+	public function getSearchLog():array {
 		$container = self::getContainer();
-		if (!isset($container->db)) { throw new \Exception("db is missing"); return; }
+		if (!isset($container->db)) { throw new \Exception("db is missing"); }
 		$connection = $container->db;
 
 		$log_query = "
