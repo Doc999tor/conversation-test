@@ -8,19 +8,6 @@ $app->get('/', function (Request $request, Response $response, array $args) {
 	return $response->withRedirect('/home');
 });
 
-$app->get('/home', function (Request $request, Response $response, array $args) {
-	return $response->withRedirect('/whoami');
-});
-$app->group('/whoami', function () use ($app) {
-	$app->get ('', function (Request $request, Response $response, array $args) {
-		return $response->write(file_get_contents('public/whoami/whoami.html'));
-	});
-	$app->post('', function (Request $request, Response $response):Response {
-		$body = $request->getParsedBody();
-		$name = filter_var($body['name'], FILTER_SANITIZE_STRING);
-
-		return $response->withRedirect('/hello/' . $name);
-	});
-});
-
-$app->get('/hello/{name}', 'ListCtrl:greetings');
+$app->get('/api/categories', 'ListCtrl:getCategories');
+$app->get('/api/languages', 'ListCtrl:getLanguages');
+$app->get('/api/actors', 'ListCtrl:getActors');

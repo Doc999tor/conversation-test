@@ -7,10 +7,10 @@ $config = [
 	'determineRouteBeforeAppMiddleware' => false,
 	'routerCacheFile' => false,
 	'db' => [
-		'driver'   => ZUZ_DB_DRIVER,
+		'driver' => ZUZ_DB_DRIVER,
 		'host'   => ZUZ_DB_HOST,
-		'user' => ZUZ_DB_USER,
-		'pass' => ZUZ_DB_PASSWORD,
+		'user'   => ZUZ_DB_USER,
+		'pass'   => ZUZ_DB_PASSWORD,
 		'dbname' => ZUZ_DB_NAME,
 	]
 ];
@@ -24,7 +24,9 @@ $container['db'] = function ($c) {
 		$connection_string = "{$db['driver']}:host={$db['host']};dbname={$db['dbname']}";
 		$pdo = new PDO($connection_string, $db['user'], $db['pass']);
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 		$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
 		return $pdo;
 	} catch (PDOException $e) {
 		throw $e;

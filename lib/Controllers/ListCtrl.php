@@ -5,6 +5,9 @@ namespace Lib\Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface		 as Response;
 
+use \Lib\Models\Category;
+use \Lib\Models\Actor;
+
 class ListCtrl {
 	protected $container;
 
@@ -12,17 +15,22 @@ class ListCtrl {
 	    $this->container = $container;
 	}
 
-	public function greetings (Request $request, Response $response, array $args):Response {
-		// $params = $request->getQueryParams();
-		$body = $request->getParsedBody();
+	public function getCategories (Request $request, Response $response):Response {
+		Category::registerContainer($this->container);
+		$categories = Category::getAll();
 
-		$name = filter_var($args['name'], FILTER_SANITIZE_STRING);
-		$date = $this->container->db
-			->query("SELECT curdate() as date")
-			->fetch()['date'];
+		return $response->withJson($categories);
+	}
+	public function getLanguages (Request $request, Response $response):Response {
+		Language::registerContainer($this->container);
+		$languages = Language::getAll();
 
-		$body = $response->getBody();
-		$body->write($date);
-		return $response;
+		return $response->withJson($languages);
+	}
+	public function getActors (Request $request, Response $response):Response {
+		Actor::registerContainer($this->container);
+		$actors = Actor::getAll();
+
+		return $response->withJson($actors);
 	}
 }
