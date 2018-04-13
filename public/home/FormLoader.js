@@ -1,4 +1,11 @@
 export class FormLoader {
+
+	/**
+	 * gets requests types and prefixes for api loading
+	 *
+	 * @param      {array of strings}  initialRequests
+	 * @param      {string}  apiPrefix
+	 */
 	constructor (initialRequests, apiPrefix) {
 		this.initialRequests = initialRequests;
 		this.apiPrefix = apiPrefix;
@@ -17,12 +24,22 @@ export class FormLoader {
 		.catch(e => {throw new Error(e)});
 	}
 
+	/**
+	 * Builds datalists with autocomplete for actors, categories, languages
+	 *
+	 * @param     array   data    Promise.all respoonse with all the apis data
+	 */
 	buildDataLists(data) {
-		const [actors, categories, languages] = data;
+		/**** Fixing tight coupling ****/
+		this.initialRequests.forEach((reqName, i) => {
+			this._buildOneList(data[i], reqName);
+		});
 
-		this._buildOneList(actors, 'actors');
-		this._buildOneList(categories, 'categories');
-		this._buildOneList(languages, 'languages');
+		// const [actors, categories, languages] = data;
+
+		// this._buildOneList(actors, 'actors');
+		// this._buildOneList(categories, 'categories');
+		// this._buildOneList(languages, 'languages');
 
 		$('form input[name=language]').trigger('change');
 
