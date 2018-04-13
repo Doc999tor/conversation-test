@@ -11,3 +11,4 @@ const formLoader = new FormLoader(initialRequests, apiPrefix);
 formLoader.loadInitialData();
 
 const filmSearch = new FilmSearch($('form'));
+filmSearch.registerEvents(['change', 'keyup']);

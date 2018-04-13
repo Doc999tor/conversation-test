@@ -57,7 +57,7 @@ class FilmSearch extends Search implements ISearchable {
 				OR film_category.category_id = (SELECT category_id FROM category WHERE name = :category)
 				OR film_actor.actor_id IN (SELECT actor_id FROM actor WHERE first_name = :actor1 or last_name = :actor2)
 				OR film.language_id = (SELECT language_id FROM language WHERE name = :language)
-			GROUP BY film.film_id
+			GROUP BY film.film_id, category.name -- the second required by sql_mode=only_full_group_by
 			LIMIT :limit
 			OFFSET :offset -- in production the OFFSET clause will be replaces with more efficient subquery
 		";

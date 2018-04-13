@@ -3,7 +3,7 @@ require 'vendor/autoload.php';
 require 'db_config.php';
 
 $config = [
-	'displayErrorDetails' => true,
+	'displayErrorDetails' => false,
 	'determineRouteBeforeAppMiddleware' => false,
 	'routerCacheFile' => false,
 	'db' => [
