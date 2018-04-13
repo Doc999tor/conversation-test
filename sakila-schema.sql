@@ -40,6 +40,15 @@ BEGIN
 END |
 delimiter ;
 
+CREATE TABLE `search_log` (
+ `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `search_types` varchar(60) NOT NULL,
+ `search_values` varchar(255) NOT NULL,
+ `result_count` mediumint(8) unsigned NOT NULL,
+ `search_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=latin1
+
 CREATE TABLE actor (
   actor_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(45) NOT NULL,
