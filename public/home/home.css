@@ -25,23 +25,25 @@ form label {
 form label input {}
 form label span {font-weight: bold;}
 
-main {
-	width: 50%;
-}
-main table {
-	--column-count: 8;
-	--table-width: 500px;
-	width: 100%;
-}
-main table thead,
-main table tbody,
-main table tr {width: 100%;}
+form fieldset {margin-top: 2rem;}
+form fieldset legend {font-size: inherit;}
 
-main table th,
-main table td {
-	width: calc(var(--table-width) / var(--column-count));
-	text-overflow: ellipsis;
+table {}
+table caption {text-align: center;color: currentColor;}
+table th,
+table td {
 	padding: .5rem;
 	border-collapse: collapse;
 	border: 1px solid currentColor;
+}
+
+#search_results {}
+#search_results thead,
+#search_results tbody,
+#search_results tr {width: 100%;}
+
+#search_log {}
+
+@media screen and (max-width: 998px) {
+	form {width: 100%;}
 }
